@@ -5,6 +5,8 @@ import System.Environment
 import Data.List (isPrefixOf)
 import qualified Data.Map.Strict as M
 import Text.JSON.Yocto
+import Data.Map.Strict hiding (map, filter)
+import Data.Ratio
 
 main :: IO ()
 main = do
@@ -39,3 +41,6 @@ mySettings = Settings {
 -- buildTree :: Value -> [[String]]
 -- buildTree (Array vs) = buildTree <$> vs
 -- buildTree (Object m) = M.toList $ M.map buildTree m
+
+testthing = do testtext <- readFile "test.json"
+               print $ decode testtext
