@@ -2,8 +2,9 @@ module Main where
 
 import System.Console.Haskeline
 import System.Environment
-import Data.List
-import Data.Tree
+import Data.List (isPrefixOf)
+import qualified Data.Map.Strict as M
+import Text.JSON.Yocto
 
 main :: IO ()
 main = do
@@ -34,3 +35,7 @@ mySettings = Settings {
   -- , complete = completeQuotedWord (Just '\\') (" \t" $ return . searchFunc) completeWord
   , autoAddHistory = True
   }
+
+-- buildTree :: Value -> [[String]]
+-- buildTree (Array vs) = buildTree <$> vs
+-- buildTree (Object m) = M.toList $ M.map buildTree m
